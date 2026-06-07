@@ -15,19 +15,19 @@ simulating a real-world diagnostic support tool for MD Anderson Cancer Institute
 - **Class Distribution:** 62.7% Benign, 37.3% Malignant
 
 ## Project Structure
-├── ANN_Cancer_Diagnosis_MDA.ipynb  # Main Jupyter Notebook
+├── ANN_Cancer_Diagnosis_MDA.ipynb  : Main Jupyter Notebook
 
-├── Cancer_Ann_Diagnosis.py         # Python Script
+├── Cancer_Ann_Diagnosis.py         : Python Script
 
-├── breast_cancer_data.csv          # Dataset
+├── breast_cancer_data.csv          : Dataset
 
-├── cancer_ann_model.keras          # Saved trained model
+├── cancer_ann_model.keras          : Saved trained model
 
 ├── plots/
 
-│   ├── training_curves.png         # Accuracy and loss over training cycles
+│   ├── training_curves.png         : Accuracy and loss over training cycles
 
-│   └── confusion_matrix.png        # Model prediction breakdown
+│   └── confusion_matrix.png        : Model prediction breakdown
 
 └── README.md
 
