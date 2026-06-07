@@ -19,17 +19,17 @@ simulating a real-world diagnostic support tool for MD Anderson Cancer Institute
 
 ├── Cancer_Ann_Diagnosis.py         : Python Script
 
+├── README.md
+
 ├── breast_cancer_data.csv          : Dataset
 
 ├── cancer_ann_model.keras          : Saved trained model
 
-├── plots/
+├── confusion_matrix.png            : Accuracy and loss over training cycles
 
-│   ├── training_curves.png         : Accuracy and loss over training cycles
+├── training_curves.png             : Model prediction breakdown
 
-│   └── confusion_matrix.png        : Model prediction breakdown
 
-└── README.md
 
 ## Model Architecture
 | Layer | Type | Neurons | Activation |
