@@ -1,87 +1,64 @@
 ## Cancer Diagnosis Using Artificial Neural Networks at MD Anderson Cancer Institute
 
-### Overview
-This project develops an Artificial Neural Network (ANN) using TensorFlow to support cancer diagnosis at MD Anderson Cancer Institute. The objective is to classify breast tumors as either benign or malignant based on clinical and radiological characteristics extracted from patient data.
+## Project Overview
+This project implements an Artificial Neural Network (ANN) using TensorFlow and Keras 
+to classify breast tumours as Benign or Malignant. It was developed as part of the 
+BAN6440 Applied Machine Learning for Business Analytics course at Nexford University, 
+simulating a real-world diagnostic support tool for MD Anderson Cancer Institute.
 
-Artificial Neural Networks are powerful machine learning models capable of learning complex patterns from data. In healthcare, these models can assist clinicians by providing predictive insights that support diagnostic decision-making and improve the efficiency of patient assessment processes.
+## Dataset
+- **Source:** Wisconsin Breast Cancer Dataset (via Kaggle)
+- **Records:** 569 patients
+- **Features:** 30 numerical cell measurement features
+- **Target:** Binary diagnosis — Benign (B) or Malignant (M)
+- **Missing Values:** None
+- **Class Distribution:** 62.7% Benign, 37.3% Malignant
 
-This project demonstrates the complete machine learning workflow, including data preparation, model development, training, evaluation, and identification of potential improvements for future clinical applications.
-Dataset
+## Project Structure
+├── ANN_Cancer_Diagnosis_MDA.ipynb  # Main Jupyter Notebook
+├── Cancer_Ann_Diagnosis.py         # Python Script
+├── breast_cancer_data.csv          # Dataset
+├── cancer_ann_model.keras          # Saved trained model
+├── plots/
+│   ├── training_curves.png         # Accuracy and loss over training cycles
+│   └── confusion_matrix.png        # Model prediction breakdown
+└── README.md
 
-The project uses the Wisconsin Breast Cancer Diagnostic Dataset, obtained from a publicly available Kaggle repository and treated as a representative dataset provided by MD Anderson Cancer Institute for the purpose of this assignment.
+## Model Architecture
+| Layer | Type | Neurons | Activation |
+|-------|------|---------|------------|
+| 1 | Dense (Hidden) | 16 | ReLU |
+| 2 | Dropout | 30% | — |
+| 3 | Dense (Hidden) | 8 | ReLU |
+| 4 | Dense (Output) | 1 | Sigmoid |
 
-### Dataset Characteristics
--  Total Patient Records: 569
--  Benign Cases: 357
--  	Malignant Cases: 212
--   Predictor Variables: 30 numerical features
--   Target Variable: Diagnosis (Benign = 0, Malignant = 1)
--   Missing Values: None
+- **Total Parameters:** 641
+- **Optimizer:** Adam
+- **Loss Function:** Binary Crossentropy
+- **Improvement Applied:** Dropout (0.3) + Early Stopping (patience=10)
 
-The features describe important cellular characteristics such as radius, texture, perimeter, area, smoothness, compactness, concavity, symmetry, and fractal dimension.
+## Results
+| Metric | Benign | Malignant | Overall |
+|--------|--------|-----------|---------|
+| Precision | 0.97 | 1.00 | 0.98 |
+| Recall | 1.00 | 0.95 | 0.98 |
+| F1-Score | 0.99 | 0.98 | 0.98 |
+| Accuracy | — | — | 98.25% |
 
-###  Data Preprocessing
-The following preprocessing steps were performed before model development:
--  Removal of non-clinical identifier columns
--  Data quality verification and missing value assessment
--	 Label encoding of the diagnosis variable
--	 Standardization of numerical features using StandardScaler
--	 Stratified train-test split (80% training, 20% testing)
--  Data leakage prevention through fitting transformations only on the training dataset
--  
-These steps ensured that the data was suitable for neural network training and evaluation.
+## Key Insight
+In cancer diagnosis, **recall for Malignant cases is the most critical metric** — 
+missing a real cancer case carries far greater risk than a false alarm. 
+Our model achieved 95% recall on Malignant cases, catching 40 out of 42 actual 
+cancer patients in the test set.
 
-###  Artificial Neural Network Architecture
-The model was developed using TensorFlow's Sequential API and consists of:
-Layer	Configuration
-Input Layer	30 Input Features
-Hidden Layer 1	16 Neurons, ReLU Activation
-Dropout Layer	20% Dropout Rate
-Hidden Layer 2	8 Neurons, ReLU Activation
-Output Layer	1 Neuron, Sigmoid Activation
-The architecture was designed to balance predictive accuracy, computational efficiency, and model generalization.
+## Tools and Libraries
+- Python 3
+- TensorFlow / Keras
+- Scikit-learn
+- Pandas, NumPy
+- Matplotlib, Seaborn
 
-###  Model Training Configuration
--  Optimizer: Adam
--	 Loss Function: Binary Cross-Entropy
--	 Batch Size: 32
--	 Epochs: 50
--	 Validation Monitoring: Accuracy and Loss
-  
-The model was trained to learn patterns associated with benign and malignant tumors while minimizing overfitting.
+## Author
+Adaora Nkemdilim Okafor | Nexford University | BAN6440 Module 5
+"""
 
-### Model Performance
-The trained neural network achieved strong classification performance on previously unseen test data.
-### Performance Metrics
-•	Overall Accuracy: 97.37%
-•	Malignant Precision: 100.00%
-•	Malignant Recall (Sensitivity): 95.24%
-•	F1-Score: 0.98
-
-###  Confusion Matrix Results
-Actual Class	Predicted Benign	Predicted Malignant
-Benign	71	0
-Malignant	2	41
-
-The results demonstrate the model's ability to accurately identify malignant cases while maintaining a low number of misclassifications.
-
-###  Potential Areas for Improvement
-Future enhancements may include:
--	Explainable Artificial Intelligence (XAI) techniques such as SHAP and LIME
--	Class imbalance handling using SMOTE
--	Threshold optimization for improved sensitivity
--	Integration with medical imaging systems
--	Deployment within clinical decision-support environments
-
-###  Potential Clinical Applications
-The developed ANN model may support:
--	Clinical decision support for radiologists and physicians
--	Early cancer detection and risk assessment
--	Faster diagnostic workflows
--	Data-driven healthcare decision-making
--	Future integration with mammography, MRI, and ultrasound imaging systems
-
-### Project Files
--	Dataset: Breast Cancer Wisconsin Diagnostic Dataset
--	Main Script: main.py
--	README: Project Documentation
