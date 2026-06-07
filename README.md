@@ -16,19 +16,24 @@ simulating a real-world diagnostic support tool for MD Anderson Cancer Institute
 
 ## Project Structure
 ├── ANN_Cancer_Diagnosis_MDA.ipynb  # Main Jupyter Notebook
+
 ├── Cancer_Ann_Diagnosis.py         # Python Script
+
 ├── breast_cancer_data.csv          # Dataset
+
 ├── cancer_ann_model.keras          # Saved trained model
+
 ├── plots/
 │   ├── training_curves.png         # Accuracy and loss over training cycles
 │   └── confusion_matrix.png        # Model prediction breakdown
+
 └── README.md
 
 ## Model Architecture
 | Layer | Type | Neurons | Activation |
 |-------|------|---------|------------|
 | 1 | Dense (Hidden) | 16 | ReLU |
-| 2 | Dropout | 30% | — |
+| 2 | Dropout | 30% | - |
 | 3 | Dense (Hidden) | 8 | ReLU |
 | 4 | Dense (Output) | 1 | Sigmoid |
 
@@ -43,10 +48,10 @@ simulating a real-world diagnostic support tool for MD Anderson Cancer Institute
 | Precision | 0.97 | 1.00 | 0.98 |
 | Recall | 1.00 | 0.95 | 0.98 |
 | F1-Score | 0.99 | 0.98 | 0.98 |
-| Accuracy | — | — | 98.25% |
+| Accuracy | - | -| 98.25% |
 
 ## Key Insight
-In cancer diagnosis, **recall for Malignant cases is the most critical metric** — 
+In cancer diagnosis, **recall for Malignant cases is the most critical metric** 
 missing a real cancer case carries far greater risk than a false alarm. 
 Our model achieved 95% recall on Malignant cases, catching 40 out of 42 actual 
 cancer patients in the test set.
@@ -60,5 +65,5 @@ cancer patients in the test set.
 
 ## Author
 Adaora Nkemdilim Okafor | Nexford University | BAN6440 Module 5
-"""
+
 
