@@ -10,7 +10,7 @@ simulating a real-world diagnostic support tool for MD Anderson Cancer Institute
 - **Source:** Wisconsin Breast Cancer Dataset (via Kaggle)
 - **Records:** 569 patients
 - **Features:** 30 numerical cell measurement features
-- **Target:** Binary diagnosis — Benign (B) or Malignant (M)
+- **Target:** Binary diagnosis: Benign (B) or Malignant (M)
 - **Missing Values:** None
 - **Class Distribution:** 62.7% Benign, 37.3% Malignant
 
@@ -24,7 +24,9 @@ simulating a real-world diagnostic support tool for MD Anderson Cancer Institute
 ├── cancer_ann_model.keras          # Saved trained model
 
 ├── plots/
+
 │   ├── training_curves.png         # Accuracy and loss over training cycles
+
 │   └── confusion_matrix.png        # Model prediction breakdown
 
 └── README.md
